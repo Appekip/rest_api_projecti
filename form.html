@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <title>Valorant matches</title>
     <link rel="stylesheet" href="main.css">
+    <script type="text/javascript" src="client.js"></script>
 </head>
 <body>
 <h1>Input match data</h1>
 <form>
-    <input type="text" placeholder="Gamertag">
-    <input type="number" placeholder="Kills">
-    <input type="number" placeholder="Deaths">
+    <input type="text" placeholder="Gamertag" id="name">
+    <input type="number" placeholder="Kills" id="kill">
+    <input type="number" placeholder="Assists" id="assist">
+    <input type="number" placeholder="Deaths" id="death">
     <label>Did you win or lose?</label>
-    <select>
+    <select id="result">
         <option value="Win">Win</option>
         <option value="Loss">Loss</option>
     </select>
 
     <label>What character did you play?</label>
-    <select>
+    <select id="agent">
         <option value="Astra">Astra</option>
         <option value="Breach">Breach</option>
         <option value="Brimstone">Brimstone</option>
@@ -37,28 +39,37 @@
     </select>
 
     <label>What map did you play?</label>
-    <select>
+    <select id="m">
         <option value="Bind">Bind</option>
         <option value="Haven">Haven</option>
         <option value="Split">Split</option>
         <option value="Ascent">Ascent</option>
         <option value="Icebox"> Icebox</option>
+        <option value="Breeze"> Icebox</option>
     </select>
 
 
+    <button class="primary" type="button" onclick="createDB()">
+        <div class="label">
+            <span class="hover-effect"></span>
+            <span class="label-text">Create a database</span>
+        </div>
+    </button>
 
-
-<input type="submit" type="button" value="Submit form" >
+<input type="button" type="button" value="Submit form" onclick="formData()">
     <div class="label">
         <span class="hover-effect"></span>
     </div>
-</button>
+</input>
 
 <input type="reset" class="outline red" type="button" value="Reset form">
     <div class="label">
         <span class="hover-effect"></span>
     </div>
-</inputbutton>
+</input>
+
+
+
 
 <button class="outline" type="button" onclick="location.href='main.html'">
     <div class="label">

@@ -178,7 +178,7 @@ input:hover .label-text:after {
 .outline+.red:hover {
     color: var(--v-white);
 }
-
+get form data from submit
 .outline+.red .label::before, .outline+.red .label::after {
     border-color: var(--v-red);
 }

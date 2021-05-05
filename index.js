@@ -1,5 +1,5 @@
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql'); 
 
 const app = express();
 
@@ -46,6 +46,14 @@ app.get('/createdb', (req, res) =>{
         }
     });
 });
+
+//Add data to the table
+app.get('/addData', (req, res) => {
+    let data = {}
+});
+
+
+
 
 
 

@@ -19,8 +19,8 @@ function createDB(){
 function formData(){
 let uname = document.getElementById("name").value;
 let kill = document.getElementById("kill").value;
-let death = document.getElementById("assist").value;
-let assist = document.getElementById("death").value;
+let death = document.getElementById("death").value;
+let assist = document.getElementById("assist").value;
 let res = document.getElementById("result").value;
 let map = document.getElementById("m").value;
 let agent = document.getElementById("agent").value;

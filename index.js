@@ -13,7 +13,7 @@ const db = mysql.createConnection({
     host : 'localhost',
     user : 'root',
     password: 'foxy',
-
+    database: 'valorant'
 });
 
 //Connect
@@ -53,7 +53,15 @@ app.use(express.json());
 //Add data to the table
 app.post('/Data', (req, res) => {
     console.log(req.body);
-    console.log("Post happens")
+    console.log("Post happens");
+    const data = req.body;
+    let sqldata = {username: data.uname, kills: data.kill, deaths: data.death, assists: data.assist, result: data.res, agent: data.agent, map: data.map};
+    let sql = 'INSERT INTO matchdata SET ?';
+    let query = db.query(sql, sqldata, (err, result) =>{
+        if (err) throw err;
+        console.log(result);
+    })
+
 });
 
 

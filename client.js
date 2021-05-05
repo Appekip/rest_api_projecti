@@ -25,18 +25,18 @@ let res = document.getElementById("result").value;
 let map = document.getElementById("m").value;
 let agent = document.getElementById("agent").value;
 console.log(uname);
+const data = {uname, kill, death, assist, res, map, agent};
 
-    fetch('/addData', {method: 'POST'})
-        .then(function(response) {
-            if(response.ok) {
-                console.log('Click was recorded');
-                return;
-            }
-            throw new Error('Request failed.');
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
-
+    const options = {
+        method: 'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(data)
+    };
+    fetch('/Data', options);
+    console.log("Fetch " + JSON.stringify(data));
 }
+
+
 

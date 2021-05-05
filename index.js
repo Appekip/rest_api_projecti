@@ -1,5 +1,6 @@
 const express = require('express');
-const mysql = require('mysql'); 
+const mysql = require('mysql');
+const another = require('./client.js');
 
 const app = express();
 
@@ -46,10 +47,13 @@ app.get('/createdb', (req, res) =>{
         }
     });
 });
+app.use(express.static('public'));
+app.use(express.json());
 
 //Add data to the table
-app.get('/addData', (req, res) => {
-    let data = {}
+app.post('/Data', (req, res) => {
+    console.log(req.body);
+    console.log("Post happens")
 });
 
 

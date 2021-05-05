@@ -9,10 +9,38 @@
 <body>
 <h1>Input match data</h1>
 <form>
-    <input type="text" placeholder="Gamertag" id="name">
+    <input type="text" placeholder="GAMERTAG" style="text-transform: none">
     <input type="number" placeholder="Kills" id="kill">
     <input type="number" placeholder="Assists" id="assist">
     <input type="number" placeholder="Deaths" id="death">
+
+    <div class="kda">
+        <input type="button" value="KDA Ratio" onclick="calculate()" style="visibility: visible;"></div>
+
+    <input id="ratio" type="text" class="easypositive">
+    </div>
+
+
+    <script>
+        function calculate()
+        {
+            let kill = document.getElementById("kill").value;
+            let death = document.getElementById("death").value;
+            let assist = document.getElementById("assist").value;
+
+            console.log(kill);
+            console.log(death);
+            console.log(assist);
+
+            let kda = (parseInt(kill)+parseInt(assist))/parseInt(death);
+            console.log(kda);
+
+            document.getElementById("ratio").value=kda;
+
+        }
+    </script>
+
+
     <label>Did you win or lose?</label>
     <select id="result">
         <option value="Win">Win</option>
@@ -63,14 +91,12 @@
         </div>
     </button>
 
-<input type="reset" class="outline red" type="button" value="Reset form">
-    <div class="label">
-        <span class="hover-effect"></span>
-    </div>
-</input>
-
-
-
+    <button class="outline red" value="Reset form">
+        <div class="label">
+            <span class="hover-effect"></span>
+            <span class="label-text">Reset form</span>
+        </div>
+    </button>
 
 <button class="outline" type="button" onclick="location.href='main.html'">
     <div class="label">

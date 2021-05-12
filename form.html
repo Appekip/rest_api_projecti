@@ -10,16 +10,17 @@
 <h1>Input match data</h1>
 <form>
 
-    <input type="text" placeholder="GAMERTAG" style="text-transform: none" id="name">
-    <input type="number" placeholder="Kills" id="kill">
-    <input type="number" placeholder="Assists" id="assist">
-    <input type="number" placeholder="Deaths" id="death">
+    <input type="text" placeholder="Username" style="text-transform: none" id="name" required>
+    <input type="number" placeholder="Kills" id="kill" required>
+    <input type="number" placeholder="Assists" id="assist" required>
+    <input type="number" placeholder="Deaths" id="death" required>
 
     <div class="kda">
         <input type="button" value="KDA Ratio" onclick="calculate()" style="visibility: visible;"></div>
 
     <input id="ratio" type="text" class="easypositive">
     </div>
+
 
     <script>
         function calculate()
@@ -76,12 +77,7 @@
     </select>
 
 
-    <button class="primary" type="button" onclick="createDB()">
-        <div class="label">
-            <span class="hover-effect"></span>
-            <span class="label-text">Create a database</span>
-        </div>
-    </button>
+
 
     <button class="outline" type="button" onclick="formData()">
         <div class="label">
@@ -91,12 +87,12 @@
     </button>
 
 
-    <button class="outline red" value="Reset form">
+    <input class="outline red" type="reset" value="Reset form">
         <div class="label">
             <span class="hover-effect"></span>
-            <span class="label-text">Reset form</span>
+            <span class="label-text"></span>
         </div>
-    </button>
+    </input>
 
 <button class="outline" type="button" onclick="location.href='main.html'">
     <div class="label">

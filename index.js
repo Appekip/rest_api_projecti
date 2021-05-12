@@ -1,6 +1,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const another = require('./client.js');
+const response = require("body-parser");
 
 const app = express();
 
@@ -62,6 +63,11 @@ app.post('/Data', (req, res) => {
         console.log(result);
     })
 
+});
+
+app.get('/DataGet', (req, res) => {
+    response.json({test:123});
+    console.log("wtf");
 });
 
 

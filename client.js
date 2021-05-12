@@ -17,6 +17,7 @@ function createDB(){
 }
 
 function formData(){
+
 let uname = document.getElementById("name").value;
 let kill = document.getElementById("kill").value;
 let death = document.getElementById("death").value;
@@ -36,7 +37,15 @@ const data = {uname, kill, death, assist, res, map, agent};
     };
     fetch('/Data', options);
     console.log("Fetch " + JSON.stringify(data));
+
 }
+
+    async function findData(){
+    const response = await fetch('/DataGet');
+    const data = await response.json();
+    console.log("was clicked");
+}
+
 
 
 

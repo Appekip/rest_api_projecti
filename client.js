@@ -37,14 +37,25 @@ const data = {uname, kill, death, assist, res, map, agent};
     };
     fetch('/Data', options);
     console.log("Fetch " + JSON.stringify(data));
-
 }
 
-    async function findData(){
-    const response = await fetch('/DataGet');
+async function findData(){
+
+    const response =  await fetch('/Data');
     const data = await response.json();
-    console.log("was clicked");
+    console.log(data);
+
+    for (item of data) {
+        const root = document.getElementById("gamedata");
+        let kills = item.kills;
+        let deaths = item.deaths;
+        let assists = item.assists;
+        const column = document.createElement("datacolumn");
+        column.innerHTML= item.agent +  " " + kills + " " + deaths + " " +assists + " ";
+        root.append(column);
+    }
 }
+
 
 
 

@@ -3,6 +3,7 @@ const mysql = require('mysql');
 const another = require('./client.js');
 const response = require("body-parser");
 
+
 const app = express();
 
 //Databse creation
@@ -13,7 +14,7 @@ const app = express();
 const db = mysql.createConnection({
     host : 'localhost',
     user : 'root',
-    password: 'Oliphant190',
+    password: 'foxy',
     database: 'valorant'
 });
 
@@ -22,6 +23,7 @@ db.connect((err) => {
     if (err){
         throw err;
     }
+
     console.log("Connection was succesfull");
 });
 
@@ -63,17 +65,18 @@ app.post('/Data', (req, res) => {
         console.log(result);
     })
 
+
 });
 
-app.get('/DataGet', (req, res) => {
-    response.json({test:123});
-    console.log("wtf");
+app.get('/Data', (request, response)  => {
+
+    let sql = 'SELECT * FROM matchdata';
+    let query = db.query(sql, (err, results) =>{
+        if (err) throw err;
+        console.log(results);
+        response.json(results);
+    })
 });
-
-
-
-
-
 
 app.listen('3000', () => {
     console.log('Server started on port 3000');

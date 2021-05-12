@@ -40,14 +40,22 @@ const data = {uname, kill, death, assist, res, map, agent};
 }
 
 async function findData(){
+    const root = document.getElementById("gamedata");
     let uname = "" +document.getElementById("name").value;
     const response =  await fetch(`/Data/"${uname}"`);
     const data = await response.json();
     console.log(data);
 
+    let matchCoutn = 0;
+    let kCount = 0;
+    let aCount = 0;
+    let dCount = 0;
+    let wCount = 0;
+    let lCount = 0;
+
+
     for (item of data) {
 
-        const root = document.getElementById("gamedata");
         let kills = item.kills;
         let deaths = item.deaths;
         let assists = item.assists;
@@ -55,9 +63,29 @@ async function findData(){
         let m = item.map;
 
         const column = document.createElement("div");
-        column.innerHTML= item.agent +  " " + kills + " " + deaths + " " +assists + " " + res + " " + m + " ";
+        column.innerHTML= "Agent used: " + item.agent +  " Kills: " + kills + " Deaths: " + deaths + " Assists: " +assists + " Result: " + res + " Map played: " + m + " ";
         root.append(column);
+
+
+        matchCoutn++;
+        kCount =+ kills;
+        aCount =+ assists;
+        dCount =+ deaths;
+        if (res == "Win"){
+            wCount++;
+        }
+        else {
+            lCount++;
+        }
+
     }
+
+    let kda = (kCount + aCount)/dCount;
+    let kd = kCount/dCount;
+    let wl = wCount/lCount;
+    const column = document.createElement("div");
+    column.innerHTML= "Kills and assists to deaths ratio is " + kda +  " Kills to deaths ratio is " + kd + " Win/Loss ratio is " + wl;
+    root.append(column);
 }
 
 

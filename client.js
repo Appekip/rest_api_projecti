@@ -50,7 +50,7 @@ async function findData(){
         let kills = item.kills;
         let deaths = item.deaths;
         let assists = item.assists;
-        const column = document.createElement("datacolumn");
+        const column = document.createElement("div");
         column.innerHTML= item.agent +  " " + kills + " " + deaths + " " +assists + " ";
         root.append(column);
     }

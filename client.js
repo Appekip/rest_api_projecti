@@ -26,6 +26,7 @@ let res = document.getElementById("result").value;
 let map = document.getElementById("m").value;
 let agent = document.getElementById("agent").value;
 console.log(uname);
+
 const data = {uname, kill, death, assist, res, map, agent};
 
     const options = {
@@ -55,9 +56,10 @@ async function findData() {
 
     if (uname == "") {
         alert("Input a username!");
-    } else {
+    }
+    else {
         for (item of data) {
-
+            matchCoutn++;
             let kills = item.kills;
             let deaths = item.deaths;
             let assists = item.assists;
@@ -65,11 +67,12 @@ async function findData() {
             let m = item.map;
 
             const column = document.createElement("div");
+            column.setAttribute("id", matchCoutn);
             column.innerHTML = "Agent used: " + item.agent + " Kills: " + kills + " Deaths: " + deaths + " Assists: " + assists + " Result: " + res + " Map played: " + m + " ";
             root.append(column);
 
 
-            matchCoutn++;
+
             kCount = +kills;
             aCount = +assists;
             dCount = +deaths;
@@ -81,12 +84,20 @@ async function findData() {
 
         }
 
-        let kda = (kCount + aCount) / dCount;
-        let kd = kCount / dCount;
-        let wl = wCount / lCount;
-        const column = document.createElement("div");
-        column.innerHTML = "Kills and assists to deaths ratio is " + kda + " Kills to deaths ratio is " + kd + " Win/Loss ratio is " + wl;
-        root.append(column);
+        if (lCount != 0) {
+
+            let kda = (kCount + aCount) / dCount;
+            let kd = kCount / dCount;
+            let wl = wCount / lCount;
+
+
+            const column = document.createElement("div");
+            column.innerHTML = "Kills and assists to deaths ratio is " + kda + " Kills to deaths ratio is " + kd + " Win/Loss ratio is " + wl;
+            root.append(column);
+        } else {
+            alert("Input a valid username!");
+
+        }
     }
 }
 

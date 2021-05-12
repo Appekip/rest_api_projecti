@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Valorant matches</title>
@@ -9,11 +9,11 @@
 <body>
 <h1>Input match data</h1>
 <form>
-
-    <input type="text" placeholder="Username" style="text-transform: none" id="name" required>
+    <input type="text" placeholder="Username" style="text-transform: none" id="name" pattern="^\S+$" required>
     <input type="number" placeholder="Kills" id="kill" required>
     <input type="number" placeholder="Assists" id="assist" required>
     <input type="number" placeholder="Deaths" id="death" required>
+
 
     <div class="kda">
         <input type="button" value="KDA Ratio" onclick="calculate()" style="visibility: visible;"></div>
@@ -79,7 +79,7 @@
 
 
 
-    <button class="outline" type="button" onclick="formData()">
+    <button class="outline" type="submit" onclick="formData()" value="Submit">
         <div class="label">
             <span class="hover-effect"></span>
             <span class="label-text">Submit form</span>
@@ -87,12 +87,13 @@
     </button>
 
 
-    <input class="outline red" type="reset" value="Reset form">
-        <div class="label">
+    <button class="outline red" type="reset" value="Reset form">
+   <div class="label">
             <span class="hover-effect"></span>
-            <span class="label-text"></span>
+            <span class="label-text">Reset form</span>
         </div>
-    </input>
+    </button>
+
 
 <button class="outline" type="button" onclick="location.href='main.html'">
     <div class="label">

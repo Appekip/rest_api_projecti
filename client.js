@@ -16,28 +16,35 @@ function createDB(){
         });
 }
 
+
+
 function formData(){
 
 let uname = document.getElementById("name").value;
-let kill = document.getElementById("kill").value;
-let death = document.getElementById("death").value;
-let assist = document.getElementById("assist").value;
+let kill = 0 + document.getElementById("kill").value;
+let death = 0 + document.getElementById("death").value;
+let assist =0 + document.getElementById("assist").value;
 let res = document.getElementById("result").value;
 let map = document.getElementById("m").value;
 let agent = document.getElementById("agent").value;
 console.log(uname);
 
-const data = {uname, kill, death, assist, res, map, agent};
+if (uname == ""){
+    alert("Enter a valid name");
+}
+else {
+    const data = {uname, kill, death, assist, res, map, agent};
 
     const options = {
         method: 'POST',
-        headers:{
-            'Content-Type':'application/json'
+        headers: {
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
     };
     fetch('/Data', options);
     console.log("Fetch " + JSON.stringify(data));
+    }
 }
 
 async function findData() {
@@ -92,7 +99,7 @@ async function findData() {
 
 
             const column = document.createElement("div");
-            column.innerHTML = "Kills and assists to deaths ratio is " + kda + " Kills to deaths ratio is " + kd + " Win/Loss ratio is " + wl;
+            column.innerHTML = "Kills and assists to deaths ratio is " + kda.toFixed(2) + " Kills to deaths ratio is " + kd.toFixed(2) + " Win/Loss ratio is " + wl.toFixed(2);
             root.append(column);
         } else {
             alert("Input a valid username!");

@@ -40,18 +40,22 @@ const data = {uname, kill, death, assist, res, map, agent};
 }
 
 async function findData(){
-
-    const response =  await fetch('/Data');
+    let uname = "" +document.getElementById("name").value;
+    const response =  await fetch(`/Data/"${uname}"`);
     const data = await response.json();
     console.log(data);
 
     for (item of data) {
+
         const root = document.getElementById("gamedata");
         let kills = item.kills;
         let deaths = item.deaths;
         let assists = item.assists;
+        let res = item.result;
+        let m = item.map;
+
         const column = document.createElement("div");
-        column.innerHTML= item.agent +  " " + kills + " " + deaths + " " +assists + " ";
+        column.innerHTML= item.agent +  " " + kills + " " + deaths + " " +assists + " " + res + " " + m + " ";
         root.append(column);
     }
 }

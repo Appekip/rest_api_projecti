@@ -68,9 +68,11 @@ app.post('/Data', (req, res) => {
 
 });
 
-app.get('/Data', (request, response)  => {
 
-    let sql = 'SELECT * FROM matchdata';
+app.get('/Data/:n', (request, response)  => {
+    //name = '"pogchamp"';
+    let sql = `SELECT * FROM matchdata WHERE username=${request.params.n}`;
+    console.log(`Req param + ${request.params.n}`)
     let query = db.query(sql, (err, results) =>{
         if (err) throw err;
         console.log(results);

@@ -1,0 +1,7 @@
+The client side has to requests which are inside two different functions, formData() and findData().
+
+formData() has a POST method which inputs data with JSON.stringify into the server. It uses a array variable called data. 
+
+findData() is an async function that fetches data from the server with ser inputted username. This is get method. 
+
+There is also a unused createDB() function, that was supposed to create a new database from the client, but I thought that it was kind of useless and a little too complicated. This is a get method. 

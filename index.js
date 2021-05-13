@@ -1,12 +1,10 @@
 const express = require('express');
 const mysql = require('mysql');
-const another = require('./client.js');
 const response = require("body-parser");
 
 
 const app = express();
 
-//Databse creation
 
 
 //Create connection to sql
@@ -29,6 +27,8 @@ db.connect((err) => {
 
 
 app.use(express.static('./'));
+
+//Method for creating the database in the app.
 
 app.get('/createdb', (req, res) =>{
     let sql = 'CREATE DATABASE valorant';
@@ -68,9 +68,10 @@ app.post('/Data', (req, res) => {
 
 });
 
+//Requesting data from the db with the inputted username
 
 app.get('/Data/:n', (request, response)  => {
-    //name = '"pogchamp"';
+
     let sql = `SELECT * FROM matchdata WHERE username=${request.params.n}`;
     console.log(`Req param + ${request.params.n}`)
     let query = db.query(sql, (err, results) =>{

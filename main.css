@@ -278,4 +278,15 @@ form {
     width: 500px;
 }
 
+
+
 select { width: 300px; text-align-last:center; margin-left: 100px;padding-left: 25px }
+
+.gamedata {
+    text-align: center;
+    font-size: large;
+    font-family: 'DIN Next LT Pro Bold';
+    color: var(--v-white);
+    column-gap: 155px;
+    border: 1px solid var(--v-outline);
+}

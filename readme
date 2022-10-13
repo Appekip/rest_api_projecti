@@ -1,1 +1,6 @@
-This was a school project for a web application
+Website that catalogs your Valorant matches and stats from said matches. Sadly back when I was programming this I had no idea how API's worked, 
+so you need to manually type in your stats from the match you just played.
+
+The website does have a rest api that writes and reads data from an SQL database. This wasn't the most impressive webapp project, however it was my first
+attempt at making one. Without this project I wouldn't have been able to make this: https://github.com/Appekip/ValorantWikiReact which is a much more impressive
+web application done using React. 
